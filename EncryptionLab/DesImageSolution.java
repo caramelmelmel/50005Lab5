@@ -11,10 +11,12 @@ public class DesImageSolution {
     public static void main(String[] args) throws Exception{
         int image_width = 200;
         int image_length = 200;
+
         // read image file and save pixel value into int[][] imageArray
         BufferedImage img = ImageIO.read(new File("SUTD.bmp"));
         image_width = img.getWidth();
         image_length = img.getHeight();
+
         // byte[][] imageArray = new byte[image_width][image_length];
         int[][] imageArray = new int[image_width][image_length];
         for(int idx = 0; idx < image_width; idx++) {
@@ -24,11 +26,12 @@ public class DesImageSolution {
             }
         } 
 // TODO: generate secret key using DES algorithm
-
+        KeyGenerator keyGen = KeyGenerator.getInstance("DES");
+        SecretKey secKey = keyGen.generateKey();
 
 // TODO: Create cipher object, initialize the ciphers with the given key, choose encryption algorithm/mode/padding,
 //you need to try both ECB and CBC mode, use PKCS5Padding padding method
-        
+        //modify the above method to do so
 
         // define output BufferedImage, set size and format
         BufferedImage outImage = new BufferedImage(image_width,image_length, BufferedImage.TYPE_3BYTE_BGR);
