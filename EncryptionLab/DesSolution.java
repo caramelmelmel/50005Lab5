@@ -9,8 +9,7 @@ import java.util.Base64;
 
 public class DesSolution {
 
-    public static void main(String[] args) throws Exception {
-        String fileName = "longtext.txt";
+    public static void fileProcess(String fileName) throws Exception{
         String data = "";
         String line;
         BufferedReader bufferedReader = new BufferedReader( new FileReader(fileName));
@@ -59,5 +58,13 @@ public class DesSolution {
 //TODO: print the decrypted String text and compare it with original text
         System.out.println("The decryted text is "+decryptedText);
         //System.out.println("The original text is "+data);
+
+    }
+
+    public static void main(String[] args) throws Exception {
+        //longtext.txt
+        fileProcess("longtext.txt");
+        //shorttext.txt
+        fileProcess("shorttext.txt");
     }
 }
