@@ -8,8 +8,9 @@ import java.util.Base64;
 
 
 public class DesSolution {
+
     public static void main(String[] args) throws Exception {
-        String fileName = "shorttext.txt";
+        String fileName = "longtext.txt";
         String data = "";
         String line;
         BufferedReader bufferedReader = new BufferedReader( new FileReader(fileName));
@@ -48,13 +49,15 @@ public class DesSolution {
         decrypt.init(Cipher.DECRYPT_MODE,desKey);
 
 //TODO: do decryption, by calling method Cipher.doFinal().
-        byte[] textDecrypted = cipher.doFinal(textEncrypted);
+
+        //java type of using decrypt to get back to original. Use that instance!
+        byte[] textDecrypted = decrypt.doFinal(textEncrypted);
 
 //TODO: do format conversion. Convert the decrypted byte[] to String, using "String a = new String(byte_array);"
         String decryptedText = new String(textDecrypted);
 
 //TODO: print the decrypted String text and compare it with original text
         System.out.println("The decryted text is "+decryptedText);
-        System.out.println("The original text is "+data);
+        //System.out.println("The original text is "+data);
     }
 }
